@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "report": "npx cypress run --reporter mochawesome"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^10.9.0"
+    "cypress": "^10.9.0",
+    "mochawesome-report-generator": "^6.2.0"
   },
   "devDependencies": {
     "typescript": "^4.8.4"
