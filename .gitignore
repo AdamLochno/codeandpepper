@@ -1,3 +1,6 @@
 /node_modules
 /mochawesome-report
 /cypress/videos
+/cypress.env.json
+/cypress/fixtures
+/cypress/downloads
