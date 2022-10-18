@@ -28,6 +28,9 @@ class BasePage {
       cy.get(el).should("not.exist");
     });
   }
+  public assertUrl(url: string) {
+    cy.url().should("eq", url);
+  }
 }
 
 export default BasePage;

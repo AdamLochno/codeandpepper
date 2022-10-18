@@ -55,5 +55,9 @@ class InventoryPage extends BasePage {
   assertLackOfElInCart() {
     cy.get(this.elements.cartItemsAmount).should("not.exist");
   }
+
+  openCart() {
+    cy.get(this.elements.cartIcon).click();
+  }
 }
 export default InventoryPage;

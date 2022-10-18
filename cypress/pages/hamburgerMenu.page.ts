@@ -4,7 +4,7 @@ import BasePage from "./basePage";
 import { login } from "../i18n/login.dict";
 
 class HamburgerMenu extends BasePage {
-  url = Cypress.env("inventoryUrl");
+  url = Cypress.env("cartUrl");
   elements = {
     cartIcon: ".shopping_cart_link",
     cartItemsAmount: ".shopping_cart_badge",
@@ -36,30 +36,32 @@ class HamburgerMenu extends BasePage {
     );
   }
 
-  addOrDeleteItemToCartByItsName(itemName: string) {
-    cy.get(this.elements.inventoryItemName)
-      .contains(itemName)
-      .parents(this.elements.inventoryItem)
-      .find(this.elements.inventoryItemButton)
-      .click();
-  }
-
-  assertRemoveBtnAppearred() {
-    cy.get(this.elements.removeFromCartButtons).should("be.visible");
-  }
-
-  assertAmounOfElInCart(amount: number) {
-    cy.get(this.elements.cartItemsAmount).should("have.text", amount);
-  }
-
-  assertLackOfElInCart() {
-    cy.get(this.elements.cartItemsAmount).should("not.exist");
-  }
-
   openHamburgerMenu() {
     cy.get(this.elements.hamburgerMenuIcon).click();
   }
 
-  assertElementsAtHamburgerMenu() {}
+  goToAllItems() {
+    cy.get(this.elements.hamMenuAllItems).click();
+  }
+
+  goToAbout() {
+    cy.get(this.elements.hamMenuAbout).click();
+  }
+
+  clickLogout() {
+    cy.get(this.elements.hamMenuLogout).click();
+  }
+
+  clickResetAppState() {
+    cy.get(this.elements.hamMenuResetAppState).click();
+  }
+
+  assertUserWentToAllItems() {
+    cy.url().should("eq", Cypress.env("inventoryUrl"));
+  }
+
+  assertUserIsNotLogin() {
+    cy.url().should("eq", Cypress.env("baseUrl"));
+  }
 }
 export default HamburgerMenu;
