@@ -19,6 +19,6 @@ describe("As a user I want to verify login to application", () => {
     loginPage.login(Cypress.env("lockedUsername"), Cypress.env("password"));
 
     //THEN
-    loginPage.assertLoginWithSuccess();
+    loginPage.assertLoginWithFailure();
   });
 });
