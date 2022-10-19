@@ -3,6 +3,8 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    run: |
+      echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
     steps:
       - name: Checkout
         uses: actions/checkout@v2.5.0
