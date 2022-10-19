@@ -29,12 +29,41 @@ describe("As a user I want to verify login to application", () => {
 
     //THEN
     checkoutS1.smokeTest();
-    checkoutS1.typeForm();
-    checkoutS1.clickContinue();
+    checkoutS1.testForm();
     checkoutS2.smokeTest();
     checkoutS2.assertDataCorrect();
     checkoutS2.clickFinish();
     checkoutComplete.smokeTest();
     checkoutComplete.assertDataPresentedCorrectly();
+  });
+
+  it("Scenario: I want to cancel checkout from step 1", () => {
+    //GIVEN
+    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
+    inventoryPage.openCart();
+    //WHEN
+    cartPage.smokeTest();
+    cartPage.checkInformation();
+    cartPage.clickCheckout();
+
+    //THEN
+    checkoutS1.cancelCheckout();
+  });
+
+  it("Scenario: I want to cancel checkout from step 2", () => {
+    //GIVEN
+    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
+    inventoryPage.openCart();
+    //WHEN
+    cartPage.smokeTest();
+    cartPage.checkInformation();
+    cartPage.clickCheckout();
+
+    //THEN
+    checkoutS1.smokeTest();
+    checkoutS1.typeForm();
+    checkoutS1.clickContinue();
+    checkoutS2.smokeTest();
+    checkoutS2.cancelCheckout();
   });
 });
