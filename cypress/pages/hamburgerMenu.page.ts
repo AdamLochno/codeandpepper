@@ -23,6 +23,7 @@ class HamburgerMenu extends BasePage {
     hamMenuAbout: "#about_sidebar_link",
     hamMenuLogout: "#logout_sidebar_link",
     hamMenuResetAppState: "#reset_sidebar_link",
+    sideMenu: ".bm-menu-wrap",
   };
 
   smokeTest() {
@@ -38,6 +39,7 @@ class HamburgerMenu extends BasePage {
 
   openHamburgerMenu() {
     cy.get(this.elements.hamburgerMenuIcon).click();
+    cy.get(this.elements.sideMenu).should("not.have.attr", "transform");
   }
 
   goToAllItems() {
