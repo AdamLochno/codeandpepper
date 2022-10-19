@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "report": "npx cypress run --reporter mochawesome",
+    "eslint": "./node_modules/.bin/eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,12 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "cypress-mochawesome-reporter": "^3.2.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "eslint": "^8.25.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.0",
     "typescript": "^4.8.4"
   }
 }

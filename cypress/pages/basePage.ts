@@ -5,8 +5,8 @@ class BasePage {
   public elements: Elements;
 
   constructor() {
-    this.url = this.url;
-    this.elements = this.elements;
+    this.url = Cypress.env("baseUrl");
+    this.elements = {};
   }
 
   public open() {
@@ -17,7 +17,7 @@ class BasePage {
     cy.setCookie("session-username", "standard_user");
   }
 
-  public verifyMultipleElementsAreVisible(...elements: any[]) {
+  public verifyMultipleElementsAreVisible(...elements: string[]) {
     elements.forEach((el) => {
       cy.get(el).should("be.visible");
     });

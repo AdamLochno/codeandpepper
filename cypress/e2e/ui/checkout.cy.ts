@@ -1,4 +1,3 @@
-import LoginPage from "../../pages/loginPage";
 import CartPage from "../../pages/cart.page";
 import InventoryPage from "../../pages/inventoryPage";
 import CheckOutS1 from "../../pages/checkoutS1.page";

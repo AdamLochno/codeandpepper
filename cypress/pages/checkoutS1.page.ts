@@ -2,7 +2,6 @@
 
 import BasePage from "./basePage";
 import InventoryPage from "./inventoryPage";
-import { login } from "../i18n/commonData.dict";
 import {
   generateFirstName,
   generateLastName,
