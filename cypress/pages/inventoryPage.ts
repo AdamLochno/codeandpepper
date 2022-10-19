@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { login } from "../i18n/commonData.dict";
+import { login, sortElements } from "../i18n/commonData.dict";
+import { items } from "../i18n/items.dict";
 
 class InventoryPage extends BasePage {
   url = Cypress.env("inventoryUrl");
@@ -23,7 +24,6 @@ class InventoryPage extends BasePage {
     hamMenuAbout: "#about_sidebar_link",
     hamMenuLogout: "#logout_sidebar_link",
     hamMenuResetAppState: "#reset_sidebar_link",
-    sortElements: "select[data-test='product_sort_container']",
   };
 
   smokeTest() {
@@ -33,8 +33,7 @@ class InventoryPage extends BasePage {
       this.elements.footerTwitterIcon,
       this.elements.footerFacebookIcon,
       this.elements.footerLinkedInIcon,
-      this.elements.hamburgerMenuIcon,
-      this.elements.sortElements
+      this.elements.hamburgerMenuIcon
     );
   }
 
@@ -60,6 +59,28 @@ class InventoryPage extends BasePage {
 
   openCart() {
     cy.get(this.elements.cartIcon).click();
+  }
+
+  assertSortingWorks() {
+    this.selectSorting(sortElements.sortAZValue);
+    this.checkFirstElementsTitle(items.sauceLabsBackpack.name);
+
+    this.selectSorting(sortElements.sortZAValue);
+    this.checkFirstElementsTitle(items.testAllTheThingTshirt.name);
+
+    this.selectSorting(sortElements.sortLowToHighValue);
+    this.checkFirstElementsTitle(items.sauceLabsOnesie.name);
+
+    this.selectSorting(sortElements.sortHighToLowValue);
+    this.checkFirstElementsTitle(items.sauceLabsFleeceJacket.name);
+  }
+
+  selectSorting(value: string) {
+    cy.get(this.elements.sortProductsDropList).select(value);
+  }
+
+  checkFirstElementsTitle(value: string) {
+    cy.get(this.elements.inventoryItemName).first().should("have.text", value);
   }
 }
 export default InventoryPage;

@@ -35,5 +35,8 @@ describe("As a user I want to verify inventory page", () => {
     inventoryPage.assertLackOfElInCart();
   });
 
-  it("Scenario: I want to verify working of sorting elements");
+  it("Scenario: I want to verify working of sorting elements", () => {
+    //THEN
+    inventoryPage.assertSortingWorks();
+  });
 });

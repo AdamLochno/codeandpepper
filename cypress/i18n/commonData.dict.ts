@@ -3,10 +3,15 @@ export const login = {
 };
 
 export const sortElements = {
-  sortAZ: "Name (A to Z)",
-  sortZA: "Name (Z to A)",
-  sortLowToHigh: "Price (low to high)",
-  sortHighToLow: "Price (high to low)",
+  sortAZValue: "az",
+  sortZAValue: "za",
+  sortLowToHighValue: "lohi",
+  sortHighToLowValue: "hilo",
+
+  sortAZName: "Name (A to Z)",
+  sortZAName: "Name (Z to A)",
+  sortLowToHighName: "Price (low to high)",
+  sortHighToLowName: "Price (high to low)",
 };
 
 export const checkoutComplete = {
