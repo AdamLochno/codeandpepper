@@ -23,6 +23,7 @@ class CheckOutS1 extends BasePage {
   };
 
   smokeTest() {
+    this.assertUrl(this.url);
     this.verifyMultipleElementsAreVisible(
       this.elements.step2Title,
       this.elements.quantityLabel,
@@ -58,6 +59,11 @@ class CheckOutS1 extends BasePage {
       "have.text",
       items.sauceLabsBikeLight.price
     );
+  }
+
+  cancelCheckout() {
+    cy.get(this.elements.cancelBtn).click();
+    cy.url().should("eq", Cypress.env("inventoryUrl"));
   }
 }
 export default CheckOutS1;
