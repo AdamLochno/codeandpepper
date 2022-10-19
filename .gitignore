@@ -4,3 +4,4 @@
 /cypress.env.json
 /cypress/fixtures
 /cypress/downloads
+/cypress/reports
