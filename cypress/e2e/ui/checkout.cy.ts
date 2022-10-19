@@ -7,7 +7,6 @@ import CheckoutComplete from "../../pages/checkoutComplete.page";
 
 const inventoryPage = new InventoryPage();
 const cartPage = new CartPage();
-const loginPage = new LoginPage();
 const checkoutS1 = new CheckOutS1();
 const checkoutS2 = new CheckOutS2();
 const checkoutComplete = new CheckoutComplete();
@@ -19,23 +18,22 @@ describe("As a user I want to verify login to application", () => {
     inventoryPage.open();
   });
 
-  it.only("Scenario: I want to buy Sauce Labs Bike Light", () => {
-    //WHEN
+  it("Scenario: I want to buy Sauce Labs Bike Light", () => {
+    //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
-    //THEN
+    //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();
     cartPage.clickCheckout();
 
+    //THEN
     checkoutS1.smokeTest();
     checkoutS1.typeForm();
     checkoutS1.clickContinue();
-
     checkoutS2.smokeTest();
     checkoutS2.assertDataCorrect();
     checkoutS2.clickFinish();
-
     checkoutComplete.smokeTest();
     checkoutComplete.assertDataPresentedCorrectly();
   });

@@ -1,7 +1,3 @@
-export const login = {
-  lockedUserMsg: "Epic sadface: Sorry, this user has been locked out.",
-};
-
 export const cart = {
   title: "Your Cart",
   quantityLabel: "QTY",

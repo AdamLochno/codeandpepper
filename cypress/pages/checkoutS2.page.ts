@@ -1,13 +1,7 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { login } from "../i18n/commonData.dict";
 import { items } from "../i18n/items.dict";
-import {
-  generateFirstName,
-  generateLastName,
-  generateZipCode,
-} from "../utils/generateData";
 
 class CheckOutS1 extends BasePage {
   url = Cypress.env("checkoutStep2");
