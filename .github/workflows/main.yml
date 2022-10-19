@@ -1,12 +1,28 @@
-name: Cypress Tests
+name: ci
 on: [push]
 jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-    run: |
-      echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+  tests:
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.5.0
-      - name: Cypress.io
-        uses: cypress-io/github-action@v4.2.0
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - name: Write the cypress.env.json file 📝
+        # use quotes around the secret, as its value
+        # is simply inserted as a string into the command
+        run: |
+          echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+
+      # https://github.com/cypress-io/github-action
+      - name: Cypress run 🚀
+        uses: cypress-io/github-action@v3
+
+      # you can use Cypress Dashboard to store the screenshots
+      # or store them on GitHub and download the zip file
+      # https://github.com/actions/upload-artifact
+      - name: Save screenshots 🖼
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
