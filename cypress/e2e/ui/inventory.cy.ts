@@ -3,7 +3,7 @@ import InventoryPage from "../../pages/inventoryPage";
 const loginPage = new LoginPage();
 const inventoryPage = new InventoryPage();
 
-describe("As a user I want to verify login to application", () => {
+describe("As a user I want to verify inventory page", () => {
   beforeEach(() => {
     cy.getCookies().should("be.empty");
     inventoryPage.setCookieForStandardUser();
@@ -34,4 +34,6 @@ describe("As a user I want to verify login to application", () => {
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Backpack");
     inventoryPage.assertLackOfElInCart();
   });
+
+  it("Scenario: I want to verify working of sorting elements");
 });

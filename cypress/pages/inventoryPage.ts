@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { login } from "../i18n/login.dict";
+import { login } from "../i18n/commonData.dict";
 
 class InventoryPage extends BasePage {
   url = Cypress.env("inventoryUrl");
@@ -23,6 +23,7 @@ class InventoryPage extends BasePage {
     hamMenuAbout: "#about_sidebar_link",
     hamMenuLogout: "#logout_sidebar_link",
     hamMenuResetAppState: "#reset_sidebar_link",
+    sortElements: "select[data-test='product_sort_container']",
   };
 
   smokeTest() {
@@ -32,7 +33,8 @@ class InventoryPage extends BasePage {
       this.elements.footerTwitterIcon,
       this.elements.footerFacebookIcon,
       this.elements.footerLinkedInIcon,
-      this.elements.hamburgerMenuIcon
+      this.elements.hamburgerMenuIcon,
+      this.elements.sortElements
     );
   }
 

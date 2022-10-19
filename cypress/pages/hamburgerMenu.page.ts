@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { login } from "../i18n/login.dict";
+import { login } from "../i18n/commonData.dict";
 
 class HamburgerMenu extends BasePage {
   url = Cypress.env("cartUrl");
