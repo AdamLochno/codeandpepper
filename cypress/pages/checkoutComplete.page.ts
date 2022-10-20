@@ -2,12 +2,6 @@
 
 import BasePage from "./basePage";
 import { checkoutComplete } from "../i18n/commonData.dict";
-import { items } from "../i18n/items.dict";
-import {
-  generateFirstName,
-  generateLastName,
-  generateZipCode,
-} from "../utils/generateData";
 
 class CheckoutComplete extends BasePage {
   url = Cypress.env("checkoutStep2");

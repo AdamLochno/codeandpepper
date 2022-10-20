@@ -1,4 +1,3 @@
-import LoginPage from "../../pages/loginPage";
 import CartPage from "../../pages/cart.page";
 import InventoryPage from "../../pages/inventoryPage";
 import CheckOutS1 from "../../pages/checkoutS1.page";
@@ -22,6 +21,7 @@ describe("As a user I want to verify login to application", () => {
     //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
+
     //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();
@@ -41,6 +41,7 @@ describe("As a user I want to verify login to application", () => {
     //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
+
     //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();
@@ -54,6 +55,7 @@ describe("As a user I want to verify login to application", () => {
     //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
+
     //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();

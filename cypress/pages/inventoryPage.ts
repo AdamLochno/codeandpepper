@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { login, sortElements } from "../i18n/commonData.dict";
+import { sortElements } from "../i18n/commonData.dict";
 import { items } from "../i18n/items.dict";
 
 class InventoryPage extends BasePage {

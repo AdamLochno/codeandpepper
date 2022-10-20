@@ -1,6 +1,4 @@
-import LoginPage from "../../pages/loginPage";
 import InventoryPage from "../../pages/inventoryPage";
-const loginPage = new LoginPage();
 const inventoryPage = new InventoryPage();
 
 describe("As a user I want to verify inventory page", () => {

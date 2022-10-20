@@ -1,8 +1,6 @@
-import LoginPage from "../../pages/loginPage";
 import InventoryPage from "../../pages/inventoryPage";
 import HamburgerMenu from "../../pages/hamburgerMenu.page";
 
-const loginPage = new LoginPage();
 const hamburgerMenu = new HamburgerMenu();
 const inventoryPage = new InventoryPage();
 
@@ -15,8 +13,6 @@ describe("As a user I want to verify hamburger menu", () => {
   });
 
   it("Scenario: I want to check redirector to all items", () => {
-    //GIVEN
-
     //WHEN
     hamburgerMenu.goToAllItems();
 
@@ -24,19 +20,7 @@ describe("As a user I want to verify hamburger menu", () => {
     hamburgerMenu.assertUrl(Cypress.env("inventoryUrl"));
   });
 
-  it("Scenario: I want to check redirector to about", () => {
-    //GIVEN
-
-    //WHEN
-    hamburgerMenu.goToAbout();
-
-    //THEN
-    hamburgerMenu.assertUrl(Cypress.env("aboutUrl"));
-  });
-
-  it.skip("Scenario: I want to check logout", () => {
-    //GIVEN
-
+  it("Scenario: I want to check logout", () => {
     //WHEN
     hamburgerMenu.clickLogout();
 
@@ -57,5 +41,10 @@ describe("As a user I want to verify hamburger menu", () => {
 
     //THEN
     inventoryPage.assertLackOfElInCart();
+  });
+
+  it("Scenario: I want to check redirector to about", () => {
+    //THEN
+    hamburgerMenu.assertAboutButton();
   });
 });
