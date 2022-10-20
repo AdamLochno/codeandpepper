@@ -13,8 +13,6 @@ describe("As a user I want to verify hamburger menu", () => {
   });
 
   it("Scenario: I want to check redirector to all items", () => {
-    //GIVEN
-
     //WHEN
     hamburgerMenu.goToAllItems();
 
@@ -22,19 +20,7 @@ describe("As a user I want to verify hamburger menu", () => {
     hamburgerMenu.assertUrl(Cypress.env("inventoryUrl"));
   });
 
-  it("Scenario: I want to check redirector to about", () => {
-    //GIVEN
-
-    //WHEN
-    hamburgerMenu.goToAbout();
-
-    //THEN
-    hamburgerMenu.assertUrl(Cypress.env("aboutUrl"));
-  });
-
   it("Scenario: I want to check logout", () => {
-    //GIVEN
-
     //WHEN
     hamburgerMenu.clickLogout();
 
@@ -55,5 +41,10 @@ describe("As a user I want to verify hamburger menu", () => {
 
     //THEN
     inventoryPage.assertLackOfElInCart();
+  });
+
+  it("Scenario: I want to check redirector to about", () => {
+    //THEN
+    hamburgerMenu.assertAboutButton();
   });
 });

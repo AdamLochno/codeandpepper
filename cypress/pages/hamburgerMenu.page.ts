@@ -45,8 +45,12 @@ class HamburgerMenu extends BasePage {
     cy.get(this.elements.hamMenuAllItems).click();
   }
 
-  goToAbout() {
-    cy.get(this.elements.hamMenuAbout).click();
+  assertAboutButton() {
+    cy.get(this.elements.hamMenuAbout).should(
+      "have.attr",
+      "href",
+      Cypress.env("aboutUrl")
+    );
   }
 
   clickLogout() {

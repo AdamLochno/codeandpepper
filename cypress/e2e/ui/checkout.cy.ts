@@ -21,6 +21,7 @@ describe("As a user I want to verify login to application", () => {
     //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
+
     //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();
@@ -40,6 +41,7 @@ describe("As a user I want to verify login to application", () => {
     //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
+
     //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();
@@ -53,6 +55,7 @@ describe("As a user I want to verify login to application", () => {
     //GIVEN
     inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
     inventoryPage.openCart();
+
     //WHEN
     cartPage.smokeTest();
     cartPage.checkInformation();
