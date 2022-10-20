@@ -34,7 +34,7 @@ describe("As a user I want to verify hamburger menu", () => {
     hamburgerMenu.assertUrl(Cypress.env("aboutUrl"));
   });
 
-  it("Scenario: I want to check logout", () => {
+  it.skip("Scenario: I want to check logout", () => {
     //GIVEN
 
     //WHEN
