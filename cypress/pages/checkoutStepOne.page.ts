@@ -7,10 +7,11 @@ import {
   generateLastName,
   generateZipCode,
 } from "../utils/generateData";
+import { stepOneValidationError } from "../i18n/commonData";
 const inventoryPage = new InventoryPage();
 
-class CheckOutS1 extends BasePage {
-  url = Cypress.env("checkoutStep1");
+class CheckOutStepOne extends BasePage {
+  url = Cypress.env("checkoutStepOne");
   elements = {
     firstNameInput: "input[data-test='firstName']",
     lastNameInput: "input[data-test='lastName']",
@@ -20,7 +21,7 @@ class CheckOutS1 extends BasePage {
     title: ".title",
     errorMsg: "h3[data-test='error']",
   };
-  smokeTest() {
+  verfiyElementsVisibility() {
     this.verifyMultipleElementsAreVisible(
       this.elements.firstNameInput,
       this.elements.lastNameInput,
@@ -31,39 +32,33 @@ class CheckOutS1 extends BasePage {
     );
   }
 
-  typeForm() {
+  typeFormWithCorrectData() {
     cy.get(this.elements.firstNameInput).type(generateFirstName());
     cy.get(this.elements.lastNameInput).type(generateLastName());
     cy.get(this.elements.postalCodeInput).type(generateZipCode());
   }
 
-  testForm() {
-    this.clickContinue();
-    cy.get(this.elements.errorMsg).should(
-      "have.text",
-      "Error: First Name is required"
-    );
-    cy.get(this.elements.firstNameInput).type(generateFirstName());
-    this.clickContinue();
-    cy.get(this.elements.errorMsg).should(
-      "have.text",
-      "Error: Last Name is required"
-    );
-    cy.get(this.elements.lastNameInput).type(generateLastName());
-
-    this.clickContinue();
-
-    cy.get(this.elements.errorMsg).should(
-      "have.text",
-      "Error: Postal Code is required"
-    );
-
-    cy.get(this.elements.postalCodeInput).type(generateZipCode());
-
-    this.clickContinue();
+  assertErrorMsg(value: string) {
+    cy.get(this.elements.errorMsg).should("have.text", value);
   }
 
-  clickContinue() {
+  checkFormValidation() {
+    this.clickContinueBtn();
+
+    this.assertErrorMsg(stepOneValidationError.firstNameBlank);
+    cy.get(this.elements.firstNameInput).type(generateFirstName());
+    this.clickContinueBtn();
+
+    this.assertErrorMsg(stepOneValidationError.lastNameBlank);
+    cy.get(this.elements.lastNameInput).type(generateLastName());
+    this.clickContinueBtn();
+
+    this.assertErrorMsg(stepOneValidationError.postalBlank);
+    cy.get(this.elements.postalCodeInput).type(generateZipCode());
+    this.clickContinueBtn();
+  }
+
+  clickContinueBtn() {
     this.assertUrl(this.url);
     cy.get(this.elements.continueBtn).click();
   }
@@ -74,4 +69,4 @@ class CheckOutS1 extends BasePage {
     inventoryPage.assertAmounOfElInCart(1);
   }
 }
-export default CheckOutS1;
+export default CheckOutStepOne;

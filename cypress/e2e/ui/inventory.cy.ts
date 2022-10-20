@@ -3,17 +3,17 @@ const inventoryPage = new InventoryPage();
 
 describe("As a user I want to verify inventory page", () => {
   beforeEach(() => {
-    cy.getCookies().should("be.empty");
+    inventoryPage.assertCookieIsEmpty();
     inventoryPage.setCookieForStandardUser();
     inventoryPage.open();
   });
 
   it("Scenario: I want to add element to cart", () => {
     //GIVEN
-    inventoryPage.smokeTest();
+    inventoryPage.verfiyElementsVisibility();
 
     //WHEN
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Backpack");
+    inventoryPage.addElementToCart("Sauce Labs Backpack");
 
     //THEN
     inventoryPage.assertRemoveBtnAppearred();
@@ -22,14 +22,14 @@ describe("As a user I want to verify inventory page", () => {
 
   it("Scenario: I want to remove element from cart", () => {
     //GIVEN
-    inventoryPage.smokeTest();
+    inventoryPage.verfiyElementsVisibility();
 
     //WHEN
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Backpack");
+    inventoryPage.addElementToCart("Sauce Labs Backpack");
     inventoryPage.assertAmounOfElInCart(1);
 
     //THEN
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Backpack");
+    inventoryPage.removeElementFromCart("Sauce Labs Backpack");
     inventoryPage.assertLackOfElInCart();
   });
 

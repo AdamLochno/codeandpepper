@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { sortElements } from "../i18n/commonData.dict";
+import { sortElements } from "../i18n/commonData";
 import { items } from "../i18n/items.dict";
 
 class InventoryPage extends BasePage {
@@ -26,7 +26,7 @@ class InventoryPage extends BasePage {
     hamMenuResetAppState: "#reset_sidebar_link",
   };
 
-  smokeTest() {
+  verfiyElementsVisibility() {
     this.verifyMultipleElementsAreVisible(
       this.elements.cartIcon,
       this.elements.sortProductsDropList,
@@ -37,12 +37,20 @@ class InventoryPage extends BasePage {
     );
   }
 
-  addOrDeleteItemToCartByItsName(itemName: string) {
+  clickRemoveAddBtn(itemName: string, value: string) {
     cy.get(this.elements.inventoryItemName)
       .contains(itemName)
       .parents(this.elements.inventoryItem)
       .find(this.elements.inventoryItemButton)
+      .should("have.text", value)
       .click();
+  }
+  addElementToCart(itemName: string) {
+    this.clickRemoveAddBtn(itemName, "Add to cart");
+  }
+
+  removeElementFromCart(itemName: string) {
+    this.clickRemoveAddBtn(itemName, "Remove");
   }
 
   assertRemoveBtnAppearred() {

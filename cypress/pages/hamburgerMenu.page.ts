@@ -25,7 +25,7 @@ class HamburgerMenu extends BasePage {
     sideMenu: ".bm-menu-wrap",
   };
 
-  smokeTest() {
+  verfiyElementsVisibility() {
     this.openHamburgerMenu();
     this.verifyMultipleElementsAreVisible(
       this.elements.closeHamburgerMenu,

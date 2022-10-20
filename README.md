@@ -8,18 +8,28 @@ npm install
 
 ## Run Cypress
 
-In terminal type
+To open Cypress In terminal type
 
 ```bash
 npm run cy:open
 ```
 
-## Run tests in Cypress and generate report
-
-In terminal type
+To run all tests in terminal type
 
 ```bash
-npm run report
+npm run test
 ```
 
-The report is saved at file mochawesome-report
+## Run Eslint
+
+To verify if your code meets eslint rules type in terminal
+
+```bash
+npm run eslint
+```
+
+To order eslint to fix your shortcomings type in terminal
+
+```bash
+npm run eslint:fix
+```
