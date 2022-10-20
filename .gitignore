@@ -6,3 +6,4 @@
 /cypress/reports
 /cypress/screenshots
 /cypress/fixtures
+.DS_Store
