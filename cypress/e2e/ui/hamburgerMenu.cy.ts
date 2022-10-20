@@ -6,10 +6,10 @@ const inventoryPage = new InventoryPage();
 
 describe("As a user I want to verify hamburger menu", () => {
   beforeEach(() => {
-    cy.getCookies().should("be.empty");
+    inventoryPage.assertCookieIsEmpty();
     hamburgerMenu.setCookieForStandardUser();
     hamburgerMenu.open();
-    hamburgerMenu.smokeTest();
+    hamburgerMenu.verfiyElementsVisibility();
   });
 
   it("Scenario: I want to check redirector to all items", () => {
@@ -33,7 +33,7 @@ describe("As a user I want to verify hamburger menu", () => {
     inventoryPage.open();
 
     //AND
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Backpack");
+    inventoryPage.addElementToCart("Sauce Labs Backpack");
 
     //WHEN
     hamburgerMenu.openHamburgerMenu();

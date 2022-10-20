@@ -1,71 +1,71 @@
 import CartPage from "../../pages/cart.page";
 import InventoryPage from "../../pages/inventoryPage";
-import CheckOutS1 from "../../pages/checkoutS1.page";
-import CheckOutS2 from "../../pages/checkoutS2.page";
+import CheckOutStepOne from "../../pages/checkoutStepOne.page";
+import CheckOutStepTwo from "../../pages/checkoutStepTwo.page";
 import CheckoutComplete from "../../pages/checkoutComplete.page";
 
 const inventoryPage = new InventoryPage();
 const cartPage = new CartPage();
-const checkoutS1 = new CheckOutS1();
-const checkoutS2 = new CheckOutS2();
+const checkoutStepOne = new CheckOutStepOne();
+const checkoutStepTwo = new CheckOutStepTwo();
 const checkoutComplete = new CheckoutComplete();
 
 describe("As a user I want to verify login to application", () => {
   beforeEach(() => {
-    cy.getCookies().should("be.empty");
+    inventoryPage.assertCookieIsEmpty();
     inventoryPage.setCookieForStandardUser();
     inventoryPage.open();
   });
 
   it("Scenario: I want to buy Sauce Labs Bike Light", () => {
     //GIVEN
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
+    inventoryPage.addElementToCart("Sauce Labs Bike Light");
     inventoryPage.openCart();
 
     //WHEN
-    cartPage.smokeTest();
+    cartPage.verfiyElementsVisibility();
     cartPage.checkInformation();
     cartPage.clickCheckout();
 
     //THEN
-    checkoutS1.smokeTest();
-    checkoutS1.testForm();
-    checkoutS2.smokeTest();
-    checkoutS2.assertDataCorrect();
-    checkoutS2.clickFinish();
-    checkoutComplete.smokeTest();
+    checkoutStepOne.verfiyElementsVisibility();
+    checkoutStepOne.checkFormValidation();
+    checkoutStepTwo.verfiyElementsVisibility();
+    checkoutStepTwo.assertDataCorrect();
+    checkoutStepTwo.clickFinish();
+    checkoutComplete.verfiyElementsVisibility();
     checkoutComplete.assertDataPresentedCorrectly();
   });
 
   it("Scenario: I want to cancel checkout from step 1", () => {
     //GIVEN
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
+    inventoryPage.addElementToCart("Sauce Labs Bike Light");
     inventoryPage.openCart();
 
     //WHEN
-    cartPage.smokeTest();
+    cartPage.verfiyElementsVisibility();
     cartPage.checkInformation();
     cartPage.clickCheckout();
 
     //THEN
-    checkoutS1.cancelCheckout();
+    checkoutStepOne.cancelCheckout();
   });
 
   it("Scenario: I want to cancel checkout from step 2", () => {
     //GIVEN
-    inventoryPage.addOrDeleteItemToCartByItsName("Sauce Labs Bike Light");
+    inventoryPage.addElementToCart("Sauce Labs Bike Light");
     inventoryPage.openCart();
 
     //WHEN
-    cartPage.smokeTest();
+    cartPage.verfiyElementsVisibility();
     cartPage.checkInformation();
     cartPage.clickCheckout();
 
     //THEN
-    checkoutS1.smokeTest();
-    checkoutS1.typeForm();
-    checkoutS1.clickContinue();
-    checkoutS2.smokeTest();
-    checkoutS2.cancelCheckout();
+    checkoutStepOne.verfiyElementsVisibility();
+    checkoutStepOne.typeFormWithCorrectData();
+    checkoutStepOne.clickContinueBtn();
+    checkoutStepTwo.verfiyElementsVisibility();
+    checkoutStepTwo.cancelCheckout();
   });
 });

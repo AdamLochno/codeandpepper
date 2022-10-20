@@ -3,8 +3,8 @@
 import BasePage from "./basePage";
 import { items } from "../i18n/items.dict";
 
-class CheckOutS1 extends BasePage {
-  url = Cypress.env("checkoutStep2");
+class CheckOutStepTwo extends BasePage {
+  url = Cypress.env("checkoutStepTwo");
   elements = {
     step2Title: ".title",
     quantityLabel: ".cart_quantity_label",
@@ -22,7 +22,7 @@ class CheckOutS1 extends BasePage {
     finishBtn: "button[data-test='finish']",
   };
 
-  smokeTest() {
+  verfiyElementsVisibility() {
     this.assertUrl(this.url);
     this.verifyMultipleElementsAreVisible(
       this.elements.step2Title,
@@ -66,4 +66,4 @@ class CheckOutS1 extends BasePage {
     cy.url().should("eq", Cypress.env("inventoryUrl"));
   }
 }
-export default CheckOutS1;
+export default CheckOutStepTwo;

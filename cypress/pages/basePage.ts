@@ -28,9 +28,13 @@ class BasePage {
       cy.get(el).should("not.exist");
     });
   }
+
   public assertUrl(url: string) {
-    cy.log(`strona ${cy.url()} czy jest równa z parametru ${url}`);
     cy.url().should("eq", url);
+  }
+
+  public assertCookieIsEmpty() {
+    cy.getCookies().should("be.empty");
   }
 }
 

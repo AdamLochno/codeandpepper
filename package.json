@@ -2,15 +2,13 @@
   "name": "codeandpepper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
     "test": "cypress run",
-    "report": "npx cypress run --reporter mochawesome",
     "eslint": "./node_modules/.bin/eslint .",
     "eslint:fix": "./node_modules/.bin/eslint . --fix"
   },
-  "author": "",
+  "author": "Adam Lochno",
   "license": "ISC",
   "dependencies": {
     "cypress": "^10.9.0"
@@ -18,7 +16,6 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "cypress-mochawesome-reporter": "^3.2.3",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",

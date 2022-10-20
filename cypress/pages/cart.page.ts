@@ -15,7 +15,7 @@ class CartPage extends BasePage {
     checkoutBtn: "button[data-test='checkout']",
   };
 
-  smokeTest() {
+  verfiyElementsVisibility() {
     this.verifyMultipleElementsAreVisible(
       this.elements.inventoryItemName,
       this.elements.inventoryItemDesc,

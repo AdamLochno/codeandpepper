@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { login } from "../i18n/commonData.dict";
+import { login } from "../i18n/commonData";
 
 class LoginPage extends BasePage {
   url = Cypress.env("baseUrl");

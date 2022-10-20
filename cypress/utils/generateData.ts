@@ -1,16 +1,13 @@
 import { faker } from "@faker-js/faker";
 
 export const generateFirstName = () => {
-  const firstName = faker.name.firstName();
-  return firstName;
+  return faker.name.firstName();
 };
 
 export const generateLastName = () => {
-  const lastName = faker.name.lastName();
-  return lastName;
+  return faker.name.lastName();
 };
 
 export const generateZipCode = () => {
-  const zipCode = faker.address.zipCode();
-  return zipCode;
+  return faker.address.zipCode();
 };

@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
 import BasePage from "./basePage";
-import { checkoutComplete } from "../i18n/commonData.dict";
+import { checkoutComplete } from "../i18n/commonData";
 
 class CheckoutComplete extends BasePage {
-  url = Cypress.env("checkoutStep2");
+  url = Cypress.env("checkoutStepTwo");
   elements = {
     title: ".title",
     header: "#checkout_complete_container h2",
@@ -13,7 +13,7 @@ class CheckoutComplete extends BasePage {
     backToProductButton: "button[data-test='back-to-products']",
   };
 
-  smokeTest() {
+  verfiyElementsVisibility() {
     this.verifyMultipleElementsAreVisible(
       this.elements.title,
       this.elements.header,
