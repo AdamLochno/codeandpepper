@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import BasePage from "./basePage";
 import { sortElements } from "../i18n/commonData";
 import { items } from "../i18n/items.dict";

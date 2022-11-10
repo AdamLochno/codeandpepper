@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import BasePage from "./basePage";
 import { checkoutComplete } from "../i18n/commonData";
 

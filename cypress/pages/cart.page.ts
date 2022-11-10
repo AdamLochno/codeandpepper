@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import BasePage from "./basePage";
 
 class CartPage extends BasePage {

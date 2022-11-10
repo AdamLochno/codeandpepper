@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import BasePage from "./basePage";
 import InventoryPage from "./inventoryPage";
 import {
